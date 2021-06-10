@@ -54,12 +54,17 @@ class ListPage extends React.Component {
       loading: false,
       tabList: []
     }
-    this.getList();
-    this.getWindowHeight();
-    let { tabListData } = this.props;
-    if (tabListData && tabListData.length > 0) {
+  }
+
+  componentDidMount() {
+    let { tabListType, tabListData } = this.props;
+    if (tabListType) {
+      this.getTabList();
+    } else if(tabListData && tabListData.length > 0){
       this.initTabListData(tabListData);
     }
+    this.getWindowHeight();
+    this.getList();
   }
 
   componentWillReceiveProps(nextProps) {
@@ -198,6 +203,7 @@ class ListPage extends React.Component {
 
   render() {
     let { tabList, systemInfo, keyword, tabValue, showTab, showShadow, dataList, listRefreshStatus, loadMoreStatus } = this.state;
+    console.log('tabList', tabList);
     return (
       <View className={'common_list_page'} style={{ height: systemInfo.windowHeight || 500 }}>
         <View className={'inputBox'}>

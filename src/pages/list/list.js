@@ -4,6 +4,7 @@ import { View, Text } from '@tarojs/components';
 import { getAnonymousUser } from '../../api/modules/common';
 import i18n from "@/utils/i18n";
 import BasePage from "@/components/BasePage";
+import ListPage from "@/components/ListPage";
 
 /**
  * demo页面
@@ -17,16 +18,32 @@ class Demo extends BasePage {
   constructor(props) {
     super(props);
     this.state = {
-
+      tabListData: [
+        {title: '项目', mainId: 1},
+        {title: '文件', mainId: 2},
+        {title: '编辑', mainId: 3},
+        {title: '工具', mainId: 4}
+      ]
     }
-    const app = Taro.getApp();
     this.title = i18n.t('tabBar.list');
+  }
+
+  componentDidMount() {
+
   }
 
   render() {
     return (
       <View className='index'>
-        <Text>{i18n.t('tabBar.list')}</Text>
+        <ListPage
+          tabListData={this.state.tabListData}
+          renderItem={() => <Text>wow</Text>}
+          params={{
+            url: 'list.list',
+            keywordKey: 'title',
+            tabKey: 'mainId'
+          }}
+        />
       </View>
     )
   }

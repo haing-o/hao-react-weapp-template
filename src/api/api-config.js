@@ -10,6 +10,7 @@ const ApiList = {
     switchLanguage: "/switch/language",
   },
   list: {
+    list: list,
     detail: list + "/detail"
   }
 }

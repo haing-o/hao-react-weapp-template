@@ -120,7 +120,7 @@ const http = async (url = '', data = {}, config = {}) => {
  * @param err
  * @private
  */
-const _handleCatch = (err) => {
+const _handleCatch = async (err) => {
   if (Object.keys(err).length === 0) return;
   if (err.statusCode) {
     Taro.showModal({
@@ -131,6 +131,7 @@ const _handleCatch = (err) => {
       content: i18n.t('http.errorMsg') + err.errMsg,
     });
   }
+  Taro.hideLoading();
 }
 
 const _extractCookie = (data) => {
