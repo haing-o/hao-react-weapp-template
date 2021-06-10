@@ -1,0 +1,35 @@
+.project
+.settings
+*~
+*.diff
+*.patch
+.DS_Store
+.bower.json
+.sizecache.json
+yarn.lock
+package-lock.json
+
+npm-debug.log*
+
+# Ignore everything in dist folder except for eslint config
+/dist/*
+!/dist/.eslintrc.json
+/server/access-log
+/node_modules
+/server/node_modules
+/.history
+/test/node_smoke_tests/lib/ensure_iterability.js
+deploy_versions/
+.temp/
+.rn_temp/
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+target/
+
+### vs code ##
+/.vscode/
+serverundefined/

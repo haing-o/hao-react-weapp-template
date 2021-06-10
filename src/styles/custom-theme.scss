@@ -1,0 +1,34 @@
+$color-brand: #0c83fa;
+/**
+  通用样式混合器，调用样例：@include text-of-line(2)
+ */
+// flex容器
+@mixin flex-box($direction: row, $justifyContent: center, $alignItems: center, $wrap: nowrap) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justifyContent;
+  align-items: $alignItems;
+  flex-wrap: $wrap;
+}
+// 多行文本省略函数，传入显示的行数line，默认2
+// 最好使用<Text>
+@mixin text-of-line($line: 2) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $line;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+// 设置css变量函数，传入对象
+/** 使用示例：
+page {
+  @include css-param((
+    "field-icon-size": 60px,
+  ));
+}
+ */
+@mixin css-param($params) {
+  @each $key, $value in $params {
+    --#{$key}: #{$value};
+  }
+}

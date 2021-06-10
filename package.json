@@ -1,0 +1,50 @@
+{
+  "name": "cloud-office-busi-mini-program",
+  "version": "1.0.0",
+  "private": true,
+  "description": "小程序测试项目",
+  "templateInfo": {
+    "name": "taro-ui",
+    "typescript": false,
+    "css": "sass"
+  },
+  "scripts": {
+    "dev": "npm run build -- --watch",
+    "build": "taro build --type weapp",
+    "build:watch": "set NODE_ENV=production && taro build --type weapp --watch"
+  },
+  "browserslist": [
+    "last 3 versions",
+    "Android >= 4.1",
+    "ios >= 8"
+  ],
+  "author": "",
+  "dependencies": {
+    "@babel/runtime": "^7.7.7",
+    "@tarojs/cli": "3.2.9",
+    "@tarojs/components": "3.2.9",
+    "@tarojs/react": "3.2.9",
+    "@tarojs/runtime": "3.2.9",
+    "@tarojs/taro": "3.2.9",
+    "classnames": "^2.3.1",
+    "dayjs": "^1.10.5",
+    "lodash": "4.17.15",
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0",
+    "taro-ui": "^3.0.0-alpha.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.0",
+    "@tarojs/mini-runner": "3.2.9",
+    "@tarojs/webpack-runner": "3.2.9",
+    "@types/webpack-env": "^1.13.6",
+    "babel-preset-taro": "3.2.9",
+    "eslint": "^6.8.0",
+    "eslint-config-taro": "3.2.9",
+    "stylelint": "9.3.0",
+    "@types/react": "^17.0.2",
+    "eslint-plugin-react": "^7.8.2",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-react-hooks": "^4.2.0"
+  }
+}

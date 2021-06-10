@@ -1,0 +1,113 @@
+## 基础文档
+
+- [小程序开发文档](https://developers.weixin.qq.com/miniprogram/dev/framework/)
+- 基础开发框架：[Taro](https://taro-docs.jd.com/taro/docs/README)
+  使用 `React`语法。
+- UI框架：[Vant Weapp](https://youzan.github.io/vant-weapp/#/home)
+  使用须知请看下方`使用UI框架Vant`。
+- 使用`scss`编写样式文件，统一使用`px`单位。
+
+# 小程序开发流程
+
+## 1. 下载[微信开发者工具](https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html)
+
+打开选择项目根目录。
+需要注意开发者工具的项目设置（右上角点击详情-本地设置）：
+
+- 需要设置关闭 ES6 转 ES5 功能，开启可能报错
+
+- 需要设置关闭上传代码时样式自动补全，开启可能报错
+
+- 需要设置关闭代码压缩上传，开启可能报错
+
+- 需要设置开启不校验合法域名、web-view（业务域名）......以及HTTPS证书。
+
+## 2. 项目运行命令
+
+- `npm install`安装依赖。
+
+- `npm run dev`为本地编译调试，含代码监听自动预览，代码未压缩。
+
+- `npm run build`为本地编译打包，代码经过压缩。
+
+## 3. 项目目录结构
+
+```js
+├─src                   //  项目目录
+│  ├─app.config.js          //  小程序全局配置
+│  ├─app.js                 //  初始化页面
+│  ├─api                    //  数据请求
+│  │  ├─modules             //  各个模块封装的请求方法
+│  │  ├─api-config.js       //  请求路径
+│  ├─component              //  业务组件
+│  ├─constant               //  常量
+│  ├─i18n               	//  国际化
+│  ├─images                 //  图片资源
+│  ├─pages                 //  业务页面
+│  │  ├─demo             	//  demo页面
+│  │  │	├─demo.js    		// demo页面业务代码
+│  │  │	├─demo.config.js    //  demo页面的配置文件
+│  │  │	├─demo.scss    		//  demo页面样式文件
+│  ├─styles                 //  公共样式
+│  │  ├─custom-theme.scss   //  css公共变量与方法
+│  │  ├─app.scss       		//  全局样式
+│  └─utils                  //  工具
+└─config                	//  项目打包配置
+```
+
+## 4. 创建新页面-可参考pages/list文件夹
+
+1. 在`src/pages/`中创建文件夹，至少包括一个`js`文件，文件命名即为之后的路径名。
+
+   必须使用class语法并继承`BasePage`组件，方便统一设置分享/标题/中英文切换等。
+
+2. `app.config.js`的`pages`中配置页面路径，路径即为上一步创建的`js`文件路径。
+
+## 5. 使用UI框架Vant
+
+1. 页面的配置文件`*.config.js`的`usingComponents`增加需要的组件，样例可看`app.config.js`
+
+   ```js
+     usingComponents: {
+       'van-icon': '@/vant/icon/index'
+     }
+   ```
+
+   > 如果是自定义组件需要引入，需要在全局`app.config.js`安装。
+
+2. 直接在`render`中使用。
+
+   ```js
+   <van-icon name="location-o" color={'#0c83fa'} size={Taro.pxTransform(48)}/>
+   ```
+
+# 注意事项
+
+1. 小程序对包体积有要求，所以在引入第三方方法时，尽量不要引入整个模块。正确和错误示范：
+
+   ```js
+   import { findKey } from 'lodash' // 对
+   import _ from 'lodash' // 错
+   ```
+
+2. 使用到的工具包
+
+  - [Loadash](https://www.lodashjs.com/)
+    一个JavaScript 实用工具库。
+  - [Day.js](https://dayjs.gitee.io/zh-CN/)
+    一个轻量的处理时间和日期的 JavaScript 库。
+
+3. 在`JS`文件中写样式包含`px`时，使用 `Taro.pxTransform` 。
+
+   但是实际换算的结果与直接在scss文件中编写的换算结果有时候并不完全一致。
+
+   **所以尽量在scss样式文件内写样式。**
+
+4. 尽量写上注释，起码标注出当前文件的意义。
+
+5. 在开发前，请先大致了解`components`中的公共组件与`utils`中的公共方法，减少代码重复率。
+
+6. 多读小程序官方文档。
+
+
+

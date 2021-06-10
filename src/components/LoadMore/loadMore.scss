@@ -1,0 +1,10 @@
+@import "../../styles/custom-theme";
+
+.load_more_box {
+  width: 100%;
+  height: 100px;
+  @include flex-box();
+  //background-color: tomato;
+  font-size: 26px;
+  color: #666666;
+}

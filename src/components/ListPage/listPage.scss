@@ -1,0 +1,86 @@
+@import "../../styles/custom-theme";
+
+.common_list_page {
+  //background-color: #ff6347;
+  .input {
+    font-size: 26px;
+    height: 64px;
+    line-height: 64px;
+    padding-left: 10px;
+  }
+  .fold_tabs_box {
+    position: relative;
+    //padding-bottom: 4px;
+    border-bottom: 1px solid #e7e7e7;
+    background-color: #ffffff;
+    @include flex-box(row, flex-start);
+    .tabsBox {
+      font-size: 30px;
+      color: #000000;
+      box-sizing: border-box;
+      width: calc(100% - 86px);
+      .tab_active_class {
+        font-weight: bold;
+      }
+    }
+    .fold-icon-box {
+      @include flex-box(row, flex-start);
+      .fold-icon {
+        font-size: 40px;
+        height: 40px;
+        width: 40px;
+        padding-left: 10px;
+        @include flex-box();
+      }
+      .icon_shadow {
+        //position: absolute;
+        width: 20px;
+        background-color: transparent;
+        height: 60px;
+      }
+    }
+    .tab_list_grid {
+      position: absolute;
+      top: 88px;
+      left: 0;
+      background-color: #ffffff;
+      width: 100%;
+      min-height: 200px;
+      @include flex-box(row, flex-start, center, wrap);
+      flex: 1;
+      padding: 28px 19px 4px;
+      z-index: 12;
+      border-top: 1px solid #e7e7e7;
+      .tab_list_grid_item {
+        background-color: #F5F9FC;
+        width: 160px;
+        box-sizing: border-box;
+        height: 78px;
+        padding: 0 22px;
+        font-size: 28px;
+        color: #000000;
+        margin: 0 9px 24px 9px;
+        @include flex-box;
+        text-align: center;
+        overflow: hidden;
+        border-radius: 6px;
+        .text {
+          @include text-of-line;
+        }
+        &.long_item {
+          width: 338px;
+          line-height: 1.2;
+        }
+        &.check_item {
+          border: 1px solid $color-brand;
+          color: $color-brand;
+        }
+      }
+    }
+  }
+  .list_view {
+    position: relative;
+    //background-color: tomato;
+    height: calc(100% - 150px);
+  }
+}

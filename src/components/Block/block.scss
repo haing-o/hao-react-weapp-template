@@ -1,0 +1,32 @@
+@import "../../styles/custom-theme";
+
+page {
+  background-color: #fafafa;
+}
+
+.block_box_h {
+  background-color: #ffffff;
+  width: 100%;
+  min-height: 100px;
+  margin: 12px 0;
+  box-sizing: border-box;
+  .block_title {
+    height: 96px;
+    @include flex-box(row, flex-start);
+    .blue_line {
+      width: 6px;
+      height: 42px;
+      background-color: $color-brand;
+    }
+    .title_text {
+      color: $color-brand;
+      font-size: 30px;
+      font-weight: bold;
+      margin-left: 24px;
+    }
+  }
+  .block_content {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
