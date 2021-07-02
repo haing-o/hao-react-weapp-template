@@ -5,7 +5,7 @@ import ChainQueue from "@/utils/chainQueue";
 import {find} from "lodash";
 const cookieChain = new ChainQueue();
 
-export const CookieName = 'ZUULBUSISESSION-CATTP';
+export const CookieName = 'CookieName';
 export const CookieKey = 'Cookie';
 const TIME_VALID = 7 * 24 * 60 * 60 * 1000;
 /**
