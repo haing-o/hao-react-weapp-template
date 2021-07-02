@@ -10,3 +10,8 @@ export const setGlobalData = (key, val) => {
 export const getGlobalData = (key) => {
   return globalData[key];
 }
+export const deleteGlobalData = (key) => {
+  if (globalData[key]) {
+    delete globalData[key]
+  }
+}

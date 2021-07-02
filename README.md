@@ -4,7 +4,7 @@
 - 基础开发框架：[Taro](https://taro-docs.jd.com/taro/docs/README)
   使用 `React`语法。
 - UI框架：[Vant Weapp](https://youzan.github.io/vant-weapp/#/home)
-  使用须知请看下方`使用UI框架Vant`。
+  使用须知请看下方`使用UI框架Vant`（请尽量使用这些基础组件）。
 - 使用`scss`编写样式文件，统一使用`px`单位。
 
 # 小程序开发流程
@@ -29,6 +29,8 @@
 - `npm run dev`为本地编译调试，含代码监听自动预览，代码未压缩。
 
 - `npm run build`为本地编译打包，代码经过压缩。
+
+> `dev`的包体积几乎为`build`的两倍，所以需要真机调试但是发现包体积过大时，可以在`app.config.js`中暂时注释一部分页面（tabBar页面必须保留，一般是前四个页面），然后重新`npm run dev`，即可得到较小的包从而进行真机调试。
 
 ## 3. 项目目录结构
 
@@ -55,7 +57,7 @@
 └─config                	//  项目打包配置
 ```
 
-## 4. 创建新页面-可参考pages/list文件夹
+## 4. 创建新页面-可参考pages/demo文件夹(请打开demo.js查看注释)
 
 1. 在`src/pages/`中创建文件夹，至少包括一个`js`文件，文件命名即为之后的路径名。
 
@@ -81,6 +83,31 @@
    <van-icon name="location-o" color={'#0c83fa'} size={Taro.pxTransform(48)}/>
    ```
 
+3. 使用时注意传递的**参数**全部变为驼峰式，例如`min-date`应写为`minDate`。
+4. 如果需要传递函数式参数时，请参考以下写法，以`van-calendar`的`formatter`参数为例。
+    ```js
+    export default class Index extends Component {
+      el = React.createRef()
+    
+      onReady () {
+        this.el.current.setAttribute('formatter', this.formatter)
+      }
+    
+      formatter () {
+        return function (day) {
+          console.log('formatter', day)
+        }
+      }
+    
+      render () {
+        return (
+          <View>
+            <van-calendar ref={this.el} show={true} />
+          </View>
+        )
+      }
+    }
+    ```
 # 注意事项
 
 1. 小程序对包体积有要求，所以在引入第三方方法时，尽量不要引入整个模块。正确和错误示范：
@@ -92,10 +119,10 @@
 
 2. 使用到的工具包
 
-  - [Loadash](https://www.lodashjs.com/)
-    一个JavaScript 实用工具库。
-  - [Day.js](https://dayjs.gitee.io/zh-CN/)
-    一个轻量的处理时间和日期的 JavaScript 库。
+- [Loadash](https://www.lodashjs.com/)
+  一个JavaScript 实用工具库。
+- [Day.js](https://dayjs.gitee.io/zh-CN/)
+  一个轻量的处理时间和日期的 JavaScript 库。
 
 3. 在`JS`文件中写样式包含`px`时，使用 `Taro.pxTransform` 。
 
@@ -105,9 +132,9 @@
 
 4. 尽量写上注释，起码标注出当前文件的意义。
 
-5. 在开发前，请先大致了解`components`中的公共组件与`utils`中的公共方法，减少代码重复率。
+5. 在开发前，请先大致了解`components`中的公共组件(包括`Vant`提供的组件)与`utils`中的公共方法，减少代码重复率。
 
-6. 多读小程序官方文档。
+6. 遇到问题优先搜索小程序官方文档和社区。
 
 
 
