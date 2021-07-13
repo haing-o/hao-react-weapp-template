@@ -1,3 +1,6 @@
+## 关于分支
+1.`echartsPackages`分支：引入`echarts`且封装组件，将使用`echarts`的页面做分包。
+
 ## 基础文档
 
 - [小程序开发文档](https://developers.weixin.qq.com/miniprogram/dev/framework/)
