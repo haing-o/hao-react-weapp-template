@@ -5,6 +5,20 @@ export default {
     'pages/detail/detail',
     'pages/user/user'
   ],
+  subpackages: [
+    {
+      root: "echartsPackages",
+      pages: [
+        'page/page'
+      ]
+    }
+  ],
+  preloadRule: {
+    'pages/home/home': {
+      network: 'all',
+      packages: ['echartsPackages']
+    }
+  },
   window: {
     backgroundTextStyle: 'dark',
     navigationBarBackgroundColor: '#fff',
