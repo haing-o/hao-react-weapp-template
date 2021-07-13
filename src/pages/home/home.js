@@ -46,6 +46,16 @@ class Home extends BasePage {
             type={'info'}
           >跳转页面</van-button>
         </View>
+        <View>
+          <van-button
+            onClick={() => {
+              Taro.navigateTo({
+                url: '/echartsPackages/page/page'
+              })
+            }}
+            type={'warning'}
+          >Echarts页面</van-button>
+        </View>
       </View>
     )
   }

@@ -1,3 +1,19 @@
+## 关于这个分支
+1. 引入[echarts-for-weixin](https://github.com/ecomfe/echarts-for-weixin)
+2. 将`echarts`做了分包。
+3. 提供`EChartsBox`组件方便调用。
+4. 基于`Taro3`对`echarts-for-weixin`的`ec-canvas.js`文件做了小调整，将`echarts`对象通过外部传入，方便分包。
+```js
+import * as echarts from "../ec-canvas/echarts";
+<ec-canvas
+  echarts={echarts}
+/>
+```
+5. 默认的`echarts.js`文件包含的图表较少，可根据需要自定义或更新`echarts`，直接覆盖`echarts.js`文件即可。
+[最新发布版](https://github.com/apache/echarts/releases)
+或
+[官网自定义构建](https://echarts.apache.org/zh/builder.html)
+
 ## 基础文档
 
 - [小程序开发文档](https://developers.weixin.qq.com/miniprogram/dev/framework/)

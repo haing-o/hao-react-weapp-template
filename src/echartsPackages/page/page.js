@@ -4,7 +4,6 @@ import { View, Text, Slot } from '@tarojs/components';
 import i18n from "@/utils/i18n";
 import BasePage, {withShare} from "@/components/BasePage";
 import EChartsBox from "../EChartsBox";
-import "./page.scss";
 
 @withShare
 class TradingCenter extends BasePage {
@@ -51,14 +50,14 @@ class TradingCenter extends BasePage {
         }]
       }]
     };
-    this.statsRef.setOption(option);
+    this.statsRef.setChartOption(option);
   }
 
   statsRefFn = (node) => this.statsRef = node
   render() {
     return (
       <View>
-        <View style={{width: '100%', height: Taro.pxTransform(300)}}>
+        <View style={{width: '100%', height: Taro.pxTransform(600)}}>
           <EChartsBox ref={this.statsRefFn} />
         </View>
       </View>
